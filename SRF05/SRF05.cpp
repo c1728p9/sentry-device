@@ -27,8 +27,8 @@ SRF05::SRF05(PinName trigger, PinName echo)
     : _trigger(trigger), _echo(echo) {    
         
     // Attach interrupts
-    _echo.rise(this, &SRF05::_rising);
-    _echo.fall(this, &SRF05::_falling);
+    _echo.rise(this, &SRF05::_falling);
+    _echo.fall(this, &SRF05::_rising);
     _ticker.attach(this, &SRF05::_startRange, 0.1);     
 }
   
